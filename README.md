@@ -25,17 +25,14 @@ LeRobot本体のプログラムは変更していません。本リポジトリ�
 ```
 .
 ├── README.md
-├── scripts/
-│   ├── 01_setup_env.ps1          環境構築（clone・コミット固定・依存関係の導入）
-│   ├── 02_find_port_camera.ps1   ポートとカメラの特定、モーターの設定、キャリブレーション
-│   ├── 03_teleoperate.ps1        テレオペ（動作確認）
-│   ├── 04_record.ps1             データ収集
-│   ├── 05_train.ps1              学習（実験1〜3）
-│   └── 06_rollout.ps1            学習済みモデルによる自律動作の評価
-├── results/
-│   ├── evaluation.csv            チェックポイント別の実機評価結果
-│   └── train_log_excerpt.txt     学習ログの抜粋（loss・学習時間）
-└── .gitignore
+├── 01_setup_env.ps1          環境構築（clone・コミット固定・依存関係の導入）
+├── 02_find_port_camera.ps1   ポートとカメラの特定、モーターの設定、キャリブレーション
+├── 03_teleoperate.ps1        テレオペ（動作確認）
+├── 04_record.ps1             データ収集
+├── 05_train.ps1              学習（実験1〜3）
+├── 06_rollout.ps1            学習済みモデルによる自律動作の評価
+├── evaluation.csv            チェックポイント別の実機評価結果
+└── train_log_excerpt.txt     学習ログの抜粋（loss・学習時間）
 ```
 
 各スクリプトは、上から順に1つずつ実行することを想定しています。ポート番号（COM3・COM4）とカメラ番号（1・2）は環境によって変わるため、`02_find_port_camera.ps1` で確認した値に合わせて書き換えてください。
@@ -46,22 +43,22 @@ LeRobot本体のプログラムは変更していません。本リポジトリ�
 
 ```powershell
 # 1. 環境構築（初回のみ）
-.\scripts\01_setup_env.ps1
+.\01_setup_env.ps1
 
 # 2. ポート・カメラの特定と、キャリブレーション
-.\scripts\02_find_port_camera.ps1
+.\02_find_port_camera.ps1
 
 # 3. テレオペで動作を確認
-.\scripts\03_teleoperate.ps1
+.\03_teleoperate.ps1
 
 # 4. データ収集（1回の実行で3本ずつ追記）
-.\scripts\04_record.ps1
+.\04_record.ps1
 
 # 5. 学習
-.\scripts\05_train.ps1
+.\05_train.ps1
 
 # 6. 実機で自律動作を評価
-.\scripts\06_rollout.ps1
+.\06_rollout.ps1
 ```
 
 ---
@@ -94,7 +91,7 @@ LeRobot本体のプログラムは変更していません。本リポジトリ�
 | 実験3 | 50,000 | 0/5 | 5/5 | 2/5 | 0/5 |
 | 実験3 | 100,000 | 0/5 | 5/5 | 0/5 | 0/5 |
 
-詳細は `results/evaluation.csv` を参照してください。
+詳細は `evaluation.csv` を参照してください。
 
 ### 分かったこと
 
